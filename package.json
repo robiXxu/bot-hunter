@@ -1,0 +1,13 @@
+{
+  "name": "auto-moderator",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "telegraf": "^3.38.0"
+  },
+  "scripts": {
+    "start": "export BOT_TOKEN='1446343624:AAE-bwUqVnS9pVHkV-bJA4hrD00leJaxfOM';nodemon app.js",
+    "test": "jest"
+  }
+}
