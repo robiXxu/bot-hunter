@@ -18,7 +18,8 @@ bot.start("start", (ctx) => {
 bot.launch();
 
 const handleMessage = async (ctx) => {
-  if (hasBlacklistedWords(getMessage(ctx))) {
+  const message = getMessage(ctx);
+  if (message && hasBlacklistedWords(message)) {
     try {
       await ctx.deleteMessage(ctx.message.message_id);
       await banUser(ctx);
