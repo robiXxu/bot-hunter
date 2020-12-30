@@ -15,6 +15,10 @@ bot.start("start", (ctx) => {
   ctx.reply("BotHunter started!");
 });
 
+bot.command("blacklistedWords", async ({ reply }) => {
+  await reply(JSON.stringify(blacklist, null, 2));
+});
+
 bot.launch();
 
 const handleMessage = async (ctx) => {
