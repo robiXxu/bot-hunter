@@ -15,8 +15,8 @@ bot.start("start", (ctx) => {
   ctx.reply("BotHunter started!");
 });
 
-bot.command("blacklist", async ({ reply }) => {
-  await reply(JSON.stringify(blacklist, null, 2));
+bot.command("blacklist", ({ reply }) => {
+  reply(JSON.stringify(blacklist, null, 2));
 });
 
 bot.launch();
