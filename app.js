@@ -16,8 +16,8 @@ bot.start("start", (ctx) => {
 });
 
 bot.command("blacklist", (ctx) => {
-  console.log('command');
-  ctx.replyWithMarkdown("```" + JSON.stringify(blacklist, null, 2) + "```")
+  console.log("command");
+  ctx.replyWithMarkdown("```" + JSON.stringify(blacklist, null, 2) + "```");
 });
 
 bot.launch();
