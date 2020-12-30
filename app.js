@@ -1,7 +1,7 @@
 const { Telegraf } = require("telegraf");
 const blacklist = require("./blacklist.json");
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
+const bot = new Telegraf(process.env.BOTHUNTER_TOKEN);
 bot.on("message", async (ctx) => {
   await handleMessage(ctx);
 });
