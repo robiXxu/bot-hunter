@@ -15,7 +15,7 @@ bot.start("start", (ctx) => {
   ctx.reply("BotHunter started!");
 });
 
-bot.command("blacklistedWords", async ({ reply }) => {
+bot.command("blacklist", async ({ reply }) => {
   await reply(JSON.stringify(blacklist, null, 2));
 });
 
@@ -23,7 +23,7 @@ bot.launch();
 
 const handleMessage = async (ctx) => {
   const message = getMessage(ctx);
-  if (message && hasBlacklistedWords(message)) {
+  if (!isMe(ctx) && message && hasBlacklistedWords(message)) {
     try {
       await ctx.deleteMessage(ctx.message.message_id);
       await banUser(ctx);
@@ -38,6 +38,7 @@ const banUser = async (ctx) => {
   await ctx.restrictChatMember(userId);
   await ctx.kickChatMember(userId);
 };
+const isMe = (ctx) => ctx.from.username === "bot_hunter_bot";
 const getMessage = (ctx) => ctx.message.text || ctx.message.caption;
 const hasBlacklistedWords = (text) =>
   blacklist.filter((w) => text.toLowerCase().indexOf(w) !== -1).length > 0;
