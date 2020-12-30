@@ -15,8 +15,9 @@ bot.start("start", (ctx) => {
   ctx.reply("BotHunter started!");
 });
 
-bot.command("blacklist", ({ reply }) => {
-  reply(JSON.stringify(blacklist, null, 2));
+bot.command("blacklist", (ctx) => {
+  console.log('command');
+  ctx.replyWithMarkdown("```" + JSON.stringify(blacklist, null, 2) + "```")
 });
 
 bot.launch();
